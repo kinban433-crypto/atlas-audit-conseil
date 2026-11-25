@@ -489,6 +489,9 @@ body.is-scroll-locked {
   position: relative;
   padding-block: clamp(32px, 4vw, 56px) clamp(40px, 5vw, 64px);
   border-block-end: 1px solid var(--rule);
+  /* Couche photo isolée : le JPEG sert de repli, le bloc @supports plus bas
+     bascule sur les variantes WebP (voir « Variantes WebP »). */
+  --hero-photo: url("../img/casablanca.jpg");
   background-image:
     linear-gradient(
       to bottom,
@@ -498,13 +501,12 @@ body.is-scroll-locked {
       rgba(251, 250, 247, 0.9) 90%,
       rgba(251, 250, 247, 0.98) 100%
     ),
-    url("../img/casablanca.jpg");
+    var(--hero-photo);
   background-size: auto, cover;
   background-position: center, center 30%;
   background-repeat: no-repeat;
 }
-/* La photo étant passée en fond, on retire le doublon sous le texte. */
-.hero__figure { display: none; }
+/* La photo du hero vit uniquement en fond : plus de <figure> en doublon. */
 /* Sur la photo, les gris de légende ne suffisent plus. */
 .hero__meta { color: rgba(13, 27, 42, 0.85); }
 .hero__lead { color: rgba(13, 27, 42, 0.9); }
@@ -557,27 +559,6 @@ body.is-scroll-locked {
   margin-block-start: var(--s4);
 }
 
-.hero__figure {
-  position: relative;
-  margin: 0;
-}
-.hero__figure img {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  filter: saturate(0.92) contrast(1.02);
-}
-.hero__figure figcaption {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--s2);
-  padding-block-start: 10px;
-  margin-block-start: 10px;
-  border-block-start: 1px solid var(--rule);
-  font-size: 0.74rem;
-  color: var(--muted-soft);
-  letter-spacing: 0.02em;
-}
 
 /* Photo de fond du hero (bureau uniquement).
    Le voile de papier est fort côté texte et s'efface côté image : le titre garde
@@ -604,7 +585,7 @@ body.is-scroll-locked {
         rgba(251, 250, 247, 0.4) 70%,
         rgba(251, 250, 247, 0.18) 100%
       ),
-      url("../img/casablanca.jpg");
+      var(--hero-photo);
     background-size: auto, auto, cover;
     background-position: center, center, center 42%;
     background-repeat: no-repeat;
@@ -625,9 +606,30 @@ body.is-scroll-locked {
         rgba(251, 250, 247, 0.4) 70%,
         rgba(251, 250, 247, 0.18) 100%
       ),
-      url("../img/casablanca.jpg");
+      var(--hero-photo);
   }
   .hero > .wrap { width: 100%; }
+}
+
+/* Variantes WebP de la photo du hero.
+   Gardées derrière @supports : un navigateur qui ignore image-set() continue
+   sur le JPEG déclaré plus haut, sans perdre les voiles en dégradé.
+   Téléphone : 800 px en 1x (le voile laisse voir la ville), 1392 px en 2x.
+   Bureau : la photo couvre toute la largeur, donc 1392 px dans les deux cas. */
+@supports (background-image: image-set(url("../img/casablanca-800.webp") type("image/webp") 1x)) {
+  .hero {
+    --hero-photo: url("../img/casablanca-800.webp");
+  }
+
+  /* Écrans denses : la même photo en 1392 px. */
+  @media (min-resolution: 2dppx) {
+    .hero { --hero-photo: url("../img/casablanca-1392.webp"); }
+  }
+
+  /* Bureau : la photo couvre toute la largeur. */
+  @media (min-width: 960px) {
+    .hero { --hero-photo: url("../img/casablanca-1392.webp"); }
+  }
 }
 
 /* Bande de garanties sous le hero */
@@ -805,6 +807,8 @@ body.is-scroll-locked {
 /* Bande photo pleine largeur, entre deux blocs de texte */
 .band { margin: var(--s5) 0 0; }
 .band--lead { margin-block-start: 0; }
+/* <picture> ne doit pas créer de boîte : l'img garde la mise en page de sa figure */
+.band picture { display: contents; }
 .band img {
   width: 100%;
   aspect-ratio: 3 / 2;
