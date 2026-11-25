@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>موارد — حاسبة الأتعاب والدليل الضريبي | أطلس للتدقيق والاستشارة</title>
+  <meta name="description" content="قدّروا كلفة محاسبتكم في دقيقة وحمّلوا الدليل الضريبي 2026. ملاحظات المكتب حول الضرائب والتدبير بالمغرب." />
+  <meta name="theme-color" content="#0D1B2A" />
+
+  <link rel="alternate" hreflang="fr" href="../ressources.html" />
+  <link rel="alternate" hreflang="ar" href="ressources.html" />
+  <link rel="alternate" hreflang="x-default" href="../ressources.html" />
+
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#contenu">الانتقال إلى المحتوى</a>
+
+  <header class="site-header">
+    <div class="wrap header__inner">
+      <a class="brand" href="index.html" aria-label="أطلس للتدقيق والاستشارة، العودة إلى الصفحة الرئيسية">
+        <svg class="brand__mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M20 4.5 33 9.2v10.4c0 7.4-5.2 12.9-13 15.9-7.8-3-13-8.5-13-15.9V9.2L20 4.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+          <path d="m13.6 19.6 4.2 4.3 8.6-9.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span class="brand__text">أطلس للتدقيق والاستشارة<small>الدار البيضاء</small></span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="التنقل الرئيسي">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">الرئيسية</a></li>
+          <li><a class="nav__link" href="expertises.html">مجالات الخبرة</a></li>
+          <li><a class="nav__link" href="cabinet.html">المكتب</a></li>
+          <li><a class="nav__link" href="ressources.html" aria-current="page">موارد</a></li>
+          <li><a class="nav__link" href="contact.html">اتصل بنا</a></li>
+        </ul>
+        <div class="nav__tools">
+          <div class="lang" aria-label="لغة الموقع">
+            <a href="../ressources.html" lang="fr" hreflang="fr">FR</a>
+            <span aria-current="true" lang="ar">العربية</span>
+          </div>
+          <a class="btn btn--accent nav__cta" href="contact.html">احجز موعداً</a>
+        </div>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="فتح القائمة">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="page-head">
+      <div class="wrap page-head__grid">
+        <div>
+          <ul class="breadcrumb">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li>موارد</li>
+          </ul>
+          <h1>قدّروا ميزانيتكم، ثم نراجعها معاً.</h1>
+        </div>
+        <p>
+          حاسبة لتحديد نطاق التكلفة، ودليل لتحضير آجالكم، وملاحظات المكتب حول المواضيع التي
+          تتكرر أكثر من غيرها.
+        </p>
+      </div>
+    </div>
+
+    <section class="section" id="simulateur">
+      <div class="wrap">
+        <div class="s-head">
+          <span class="s-head__num">01</span>
+          <h2>قدّروا كلفة محاسبتكم في دقيقة</h2>
+          <p>
+            حرّكوا المؤشرات حسب نشاطكم الفعلي. النتيجة نطاق تقديري لا عرض سعر: نؤكده بعد الاطلاع
+            على حساباتكم الأخيرة.
+          </p>
+        </div>
+
+        <div class="tool-grid">
+          <div class="sim-panel">
+            <form class="sim-panel__form" id="simForm">
+              <div class="field">
+                <label for="simProfile">صنف مقاولتكم</label>
+                <select class="input" id="simProfile" name="profile">
+                  <option value="independant">مستقل / مقاول ذاتي</option>
+                  <option value="startup">شركة ناشئة في نمو</option>
+                  <option value="pme" selected>مقاولة صغرى أو متوسطة</option>
+                  <option value="grande">مجموعة / شركات متعددة</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <div class="label-row">
+                  <label for="simVolume">الوثائق المحاسبية شهرياً</label>
+                  <output class="label-value" id="simVolumeOut" for="simVolume">120</output>
+                </div>
+                <input class="range" type="range" id="simVolume" name="volume" min="10" max="800" step="10" value="120" />
+              </div>
+
+              <div class="field">
+                <div class="label-row">
+                  <label for="simStaff">الأجراء المكلفون بالأجور</label>
+                  <output class="label-value" id="simStaffOut" for="simStaff">8</output>
+                </div>
+                <input class="range" type="range" id="simStaff" name="staff" min="0" max="60" step="1" value="8" />
+              </div>
+
+              <fieldset class="field" style="border: 0; padding: 0; margin: 0;">
+                <legend style="margin-block-end: 8px;">مهام إضافية</legend>
+                <div class="checks">
+                  <label class="check-pill"><input type="checkbox" id="simTax" checked /> التصريحات الضريبية</label>
+                  <label class="check-pill"><input type="checkbox" id="simLegal" /> الكتابة القانونية</label>
+                  <label class="check-pill"><input type="checkbox" id="simReport" /> الاستشارة والتقارير</label>
+                </div>
+              </fieldset>
+
+              <div class="sim-out" aria-live="polite">
+                <p class="sim-out__label">الميزانية الشهرية التقديرية</p>
+                <p class="sim-out__amount">
+                  <span id="simMin">1 350</span> – <span id="simMax">1 800</span>
+                  <span class="sim-out__unit">درهم دون ضريبة</span>
+                </p>
+                <p class="sim-out__note">
+                  أي ما يقارب <span id="simYear">16 200 – 21 600 درهم</span> سنوياً.
+                </p>
+                <a class="btn btn--accent btn--block" href="contact.html">
+                  اطلب عرضاً مفصلاً
+                  <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13" /><path d="m12 5 7 7-7 7" /></svg>
+                </a>
+                <p class="sim-out__disclaimer">
+                  تقدير إرشادي دون احتساب الضريبة، يُؤكد بعد تحليل ملفكم.
+                </p>
+              </div>
+            </form>
+          </div>
+
+          <aside class="guide">
+            <span class="guide__kicker">دليل مجاني</span>
+            <h3>الدليل الضريبي 2026</h3>
+            <p>
+              أربع وعشرون صفحة لتحضير آجالكم: ما تغيّر هذه السنة، والتصريحات التي لا يجب
+              تفويتها، والأخطاء التدبيرية الأكثر شيوعاً.
+            </p>
+            <ul>
+              <li>الرزنامة الضريبية والاجتماعية للسنة</li>
+              <li>الضريبة على الشركات والدخل والقيمة المضافة</li>
+              <li>عشر أخطاء تدبيرية يجب تجنبها</li>
+              <li>قائمة تحقق للإقفال السنوي</li>
+            </ul>
+            <a class="btn btn--line-light btn--block" href="contact.html">
+              اطلب الدليل الإلكتروني
+            </a>
+            <p class="guide__foot">مخصص للمسيرين · دون أي التزام</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--paper">
+      <div class="wrap">
+        <div class="s-head">
+          <span class="s-head__num">02</span>
+          <h2>ملاحظات المكتب</h2>
+          <p>
+            أربعة مواضيع يطرحها علينا عملاؤنا كل ثلاثة أشهر. ننشرها لتفادي الأخطاء الأكثر كلفة.
+          </p>
+        </div>
+
+        <ul class="values">
+          <li>
+            <span class="values__n">الضرائب · 6 دقائق</span>
+            <h3>تأسيس شركة بالمغرب: ذات مسؤولية محدودة أم شركة مساهمة؟</h3>
+            <p>
+              الاختيار لا يختزل في رأسمال أدنى. إنه يحدد الحكامة ومسؤولية الشركاء والوصول إلى
+              التمويل. المعايير التي يجب وزنها قبل إيداع القانون الأساسي.
+            </p>
+          </li>
+          <li>
+            <span class="values__n">المحاسبة · 4 دقائق</span>
+            <h3>ما ينظر إليه البنكي فعلاً في الحصيلة</h3>
+            <p>
+              ثلاثة نسب أهم من رقم الأعمال: القدرة على السداد، جودة ديون العملاء، وبنية الحاجة
+              إلى رأس المال العامل.
+            </p>
+          </li>
+          <li>
+            <span class="values__n">الاجتماعي · 5 دقائق</span>
+            <h3>الأجور والضمان الاجتماعي: أكثر خمسة تأخيرات تكراراً</h3>
+            <p>
+              تصريحات فصلية، تسوية المعدلات، أجراء غير مصرح بهم: نظرة على أسباب التصحيح الأكثر
+              شيوعاً وكيفية توقعها.
+            </p>
+          </li>
+          <li>
+            <span class="values__n">الاستشارة · 7 دقائق</span>
+            <h3>تحضير لجنة قرض دون إضاعة ثلاثة أسابيع</h3>
+            <p>
+              الملف المالي المنتظر، الفرضيات التي يجب توثيقها، والأسئلة التي تعود إليها اللجنة
+              دائماً. قائمة تحضير في عشر نقاط.
+            </p>
+          </li>
+        </ul>
+
+        <p style="margin-block-start: var(--s4);">
+          <a class="link-under" href="contact.html">
+            استقبل الملاحظات بالبريد الإلكتروني
+            <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13" /><path d="m12 5 7 7-7 7" /></svg>
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="s-head">
+          <span class="s-head__num">03</span>
+          <h2>أسئلة متكررة</h2>
+          <p>الأجوبة التي نقدمها غالباً قبل اللقاء الأول.</p>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>هل خبير محاسب إلزامي بالمغرب؟</summary>
+            <p>
+              مسك المحاسبة إلزامي على كل مقاولة، لكنه لا يفرض اللجوء إلى خبير محاسب. أما
+              المصادقة على القوائم السنوية من طرف مراقب حسابات فهي مطلوبة لبعض أشكال الشركات
+              التي تتجاوز الحدود القانونية.
+            </p>
+          </details>
+          <details>
+            <summary>هل يمكنكم استلام ملف يمسكه مكتب آخر؟</summary>
+            <p>
+              نعم. نطلب حسابات السنة الجارية وميزان المراجعة وآخر التصريحات المودعة. استلام الملف
+              موضوع رسالة تكليف خاصة، تُحدد أتعابها قبل البدء.
+            </p>
+          </details>
+          <details>
+            <summary>هل تعملون مع عملاء خارج الدار البيضاء؟</summary>
+            <p>
+              نعم. تُودع الوثائق عبر الإنترنت وتُعقد اللقاءات بالاتصال المرئي. لدينا عملاء بالرباط
+              وطنجة ومراكش وأكادير، وفروع لمجموعات أوروبية دون حضور ميداني.
+            </p>
+          </details>
+          <details>
+            <summary>ماذا يحدث في حالة المراقبة الضريبية؟</summary>
+            <p>
+              مواكبة المراقبة جزء من مهام الخبرة المحاسبية، في حدود النطاق المنصوص عليه في العقد.
+              إذا تجاوز حجم العمل ذلك النطاق، نُخبركم قبل تحميل أتعاب إضافية.
+            </p>
+          </details>
+          <details>
+            <summary>هل أتعابكم جزافية؟</summary>
+            <p>
+              المهام الدورية (المحاسبة، الأجور، التصريحات) تُفوتر شهرياً بشكل جزافي. المهام
+              الظرفية (التدقيق، مخطط الأعمال، التقييم) موضوع عرض سعر ثابت قبل البدء.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="wrap">
+        <div class="cta-band">
+          <div>
+            <h2>النطاق يناسبكم؟ ننتقل إلى الرقم الدقيق.</h2>
+            <p>أرسلوا لنا آخر حصيلتين، ونعود إليكم بعرض مكتوب خلال 48 ساعة.</p>
+          </div>
+          <a class="btn btn--accent" href="contact.html">
+            اطلب عرضاً
+            <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13" /><path d="m12 5 7 7-7 7" /></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div>
+        <a class="brand" href="index.html">
+          <svg class="brand__mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M20 4.5 33 9.2v10.4c0 7.4-5.2 12.9-13 15.9-7.8-3-13-8.5-13-15.9V9.2L20 4.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+            <path d="m13.6 19.6 4.2 4.3 8.6-9.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="brand__text">أطلس للتدقيق والاستشارة<small>الدار البيضاء</small></span>
+        </a>
+        <p class="footer__desc">
+          مكتب للتدقيق والخبرة المحاسبية والاستشارة. نواكب المسيرين بصرامة وشفافية وبأدوات
+          تتبع حديثة.
+        </p>
+        <p style="margin-block-start: var(--s3);">
+          <a class="social" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="أطلس للتدقيق والاستشارة على لينكد إن">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6.5 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.02-3.06-1.9-3.06-1.9 0-2.19 1.45-2.19 2.96V21h-4V9Z" /></svg>
+          </a>
+        </p>
+      </div>
+
+      <div>
+        <h2 class="footer__title">مجالات الخبرة</h2>
+        <ul class="footer__list">
+          <li><a href="expertises.html#audit">التدقيق ومراقبة الحسابات</a></li>
+          <li><a href="expertises.html#comptabilite">الخبرة المحاسبية</a></li>
+          <li><a href="expertises.html#fiscal">الضرائب والقانون</a></li>
+          <li><a href="expertises.html#social">الاجتماعي والأجور</a></li>
+          <li><a href="expertises.html#finance">الاستشارة المالية</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__title">المكتب</h2>
+        <ul class="footer__list">
+          <li><a href="cabinet.html">من نحن</a></li>
+          <li><a href="cabinet.html#equipe">الفريق</a></li>
+          <li><a href="ressources.html">موارد</a></li>
+          <li><a href="ressources.html#simulateur">تقدير الميزانية</a></li>
+          <li><a href="contact.html">اتصل بنا</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__title">معلومات الاتصال</h2>
+        <div class="footer__contact">
+          <p>45، شارع الزرقطوني، الطابق الرابع<br />20100 الدار البيضاء، المغرب</p>
+          <p><a href="tel:+212522000000">+212 (0)5 22 00 00 00</a></p>
+          <p><a href="mailto:contact@atlas-audit.ma">contact@atlas-audit.ma</a></p>
+          <p>من الاثنين إلى الجمعة، 8:30 – 18:30</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap footer__bottom">
+      <p>© <span data-year>2026</span> أطلس للتدقيق والاستشارة. جميع الحقوق محفوظة.</p>
+      <ul class="footer__legal">
+        <li><a href="mentions-legales.html">المعلومات القانونية</a></li>
+        <li><a href="confidentialite.html">سياسة الخصوصية</a></li>
+        <li><a href="../ressources.html" hreflang="fr" lang="fr">Français</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>

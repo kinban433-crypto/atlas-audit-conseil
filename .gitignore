@@ -1,0 +1,8 @@
+# Captures de contrôle (QA) — hors site
+/*.png
+/*.jpg
+
+# Outils locaux
+.freebuff/
+.vercel/
+node_modules/

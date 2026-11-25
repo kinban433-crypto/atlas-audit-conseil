@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ressources — simulateur d'honoraires et guide fiscal | Atlas Audit &amp; Conseil</title>
+  <meta name="description" content="Estimez le coût de votre comptabilité en une minute et téléchargez notre guide fiscal 2026. Notes pratiques du cabinet sur la fiscalité et la gestion au Maroc." />
+  <meta name="theme-color" content="#0D1B2A" />
+
+  <link rel="alternate" hreflang="fr" href="ressources.html" />
+  <link rel="alternate" hreflang="ar" href="ar/ressources.html" />
+  <link rel="alternate" hreflang="x-default" href="ressources.html" />
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="wrap header__inner">
+      <a class="brand" href="index.html" aria-label="Atlas Audit et Conseil, retour à l'accueil">
+        <svg class="brand__mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <path d="M20 4.5 33 9.2v10.4c0 7.4-5.2 12.9-13 15.9-7.8-3-13-8.5-13-15.9V9.2L20 4.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+          <path d="m13.6 19.6 4.2 4.3 8.6-9.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span class="brand__text">Atlas Audit &amp; Conseil<small>Casablanca</small></span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Navigation principale">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="index.html">Accueil</a></li>
+          <li><a class="nav__link" href="expertises.html">Expertises</a></li>
+          <li><a class="nav__link" href="cabinet.html">Le cabinet</a></li>
+          <li><a class="nav__link" href="ressources.html" aria-current="page">Ressources</a></li>
+          <li><a class="nav__link" href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav__tools">
+          <div class="lang" aria-label="Langue du site">
+            <span aria-current="true" lang="fr">FR</span>
+            <a href="ar/ressources.html" lang="ar" hreflang="ar">العربية</a>
+          </div>
+          <a class="btn btn--accent nav__cta" href="contact.html">Prendre rendez-vous</a>
+        </div>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="page-head">
+      <div class="wrap page-head__grid">
+        <div>
+          <ul class="breadcrumb">
+            <li><a href="index.html">Accueil</a></li>
+            <li>Ressources</li>
+          </ul>
+          <h1>Estimez votre budget, puis vérifions-le ensemble.</h1>
+        </div>
+        <p>
+          Un simulateur pour situer votre ordre de grandeur, un guide pour préparer vos échéances,
+          et nos notes de cabinet sur les sujets qui reviennent le plus souvent.
+        </p>
+      </div>
+    </div>
+
+    <!-- SIMULATEUR + GUIDE -->
+    <section class="section" id="simulateur">
+      <div class="wrap">
+        <div class="s-head">
+          <span class="s-head__num">01</span>
+          <h2>Estimez le coût de votre comptabilité en une minute</h2>
+          <p>
+            Ajustez les curseurs selon votre activité réelle. Le résultat est une fourchette, pas
+            une offre : nous la confirmons après lecture de vos derniers comptes.
+          </p>
+        </div>
+
+        <div class="tool-grid">
+          <div class="sim-panel">
+            <form class="sim-panel__form" id="simForm">
+              <div class="field">
+                <label for="simProfile">Profil de votre entreprise</label>
+                <select class="input" id="simProfile" name="profile">
+                  <option value="independant">Indépendant / auto-entrepreneur</option>
+                  <option value="startup">Startup en croissance</option>
+                  <option value="pme" selected>PME établie</option>
+                  <option value="grande">Groupe / multi-sociétés</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <div class="label-row">
+                  <label for="simVolume">Pièces comptables par mois</label>
+                  <output class="label-value" id="simVolumeOut" for="simVolume">120</output>
+                </div>
+                <input class="range" type="range" id="simVolume" name="volume" min="10" max="800" step="10" value="120" />
+              </div>
+
+              <div class="field">
+                <div class="label-row">
+                  <label for="simStaff">Salariés à gérer en paie</label>
+                  <output class="label-value" id="simStaffOut" for="simStaff">8</output>
+                </div>
+                <input class="range" type="range" id="simStaff" name="staff" min="0" max="60" step="1" value="8" />
+              </div>
+
+              <fieldset class="field" style="border: 0; padding: 0; margin: 0;">
+                <legend style="margin-block-end: 8px;">Missions complémentaires</legend>
+                <div class="checks">
+                  <label class="check-pill"><input type="checkbox" id="simTax" checked /> Déclarations fiscales</label>
+                  <label class="check-pill"><input type="checkbox" id="simLegal" /> Secrétariat juridique</label>
+                  <label class="check-pill"><input type="checkbox" id="simReport" /> Conseil &amp; reporting</label>
+                </div>
+              </fieldset>
+
+              <div class="sim-out" aria-live="polite">
+                <p class="sim-out__label">Budget mensuel estimé</p>
+                <p class="sim-out__amount">
+                  <span id="simMin">1 350</span> – <span id="simMax">1 800</span>
+                  <span class="sim-out__unit">MAD HT</span>
+                </p>
+                <p class="sim-out__note">
+                  Soit <span id="simYear">16 200 – 21 600 MAD</span> par an.
+                </p>
+                <a class="btn btn--accent btn--block" href="contact.html">
+                  Recevoir mon devis détaillé
+                  <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13" /><path d="m12 5 7 7-7 7" /></svg>
+                </a>
+                <p class="sim-out__disclaimer">
+                  Estimation indicative hors taxes, à confirmer après analyse de votre dossier.
+                </p>
+              </div>
+            </form>
+          </div>
+
+          <aside class="guide">
+            <span class="guide__kicker">Guide gratuit</span>
+            <h3>Guide fiscal 2026</h3>
+            <p>
+              Vingt-quatre pages pour préparer vos échéances : ce qui change cette année, les
+              déclarations à ne pas manquer et les erreurs de gestion les plus fréquentes.
+            </p>
+            <ul>
+              <li>Calendrier fiscal et social de l'année</li>
+              <li>IS, IR et TVA : les points de vigilance</li>
+              <li>Dix erreurs de gestion à éviter</li>
+              <li>Checklist de clôture annuelle</li>
+            </ul>
+            <a class="btn btn--line-light btn--block" href="contact.html">
+              Demander le guide (PDF)
+            </a>
+            <p class="guide__foot">Réservé aux dirigeants · aucun engagement</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTES -->
+    <section class="section section--paper">
+      <div class="wrap">
+        <div class="s-head">
+          <span class="s-head__num">02</span>
+          <h2>Notes du cabinet</h2>
+          <p>
+            Quatre sujets que nos clients nous posent chaque trimestre. Nous les publions pour
+            éviter les erreurs les plus coûteuses.
+          </p>
+        </div>
+
+        <ul class="values">
+          <li>
+            <span class="values__n">Fiscalité · 6 min</span>
+            <h3>Créer sa société au Maroc : SARL ou SA ?</h3>
+            <p>
+              Le choix ne se résume pas au capital minimum. Il détermine la gouvernance, la
+              responsabilité des associés et l'accès aux financements. Les critères à peser avant
+              de déposer les statuts.
+            </p>
+          </li>
+          <li>
+            <span class="values__n">Comptabilité · 4 min</span>
+            <h3>Ce qu'un banquier regarde vraiment dans un bilan</h3>
+            <p>
+              Trois ratios comptent plus que le chiffre d'affaires : la capacité de remboursement,
+              la qualité des créances clients et la structure du besoin en fonds de roulement.
+            </p>
+          </li>
+          <li>
+            <span class="values__n">Social · 5 min</span>
+            <h3>Paie et CNSS : les cinq retards les plus fréquents</h3>
+            <p>
+              Déclarations trimestrielles, régularisations de taux, salariés non déclarés : un
+              point sur les motifs de redressement les plus courants et la façon de les anticiper.
+            </p>
+          </li>
+          <li>
+            <span class="values__n">Conseil · 7 min</span>
+            <h3>Préparer un comité de crédit sans y perdre trois semaines</h3>
+            <p>
+              Le dossier financier attendu, les hypothèses à documenter et les questions auxquelles
+              un comité revient toujours. Une liste de préparation en dix points.
+            </p>
+          </li>
+        </ul>
+
+        <p style="margin-block-start: var(--s4);">
+          <a class="link-under" href="contact.html">
+            Recevoir les notes par email
+            <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13" /><path d="m12 5 7 7-7 7" /></svg>
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section">
+      <div class="wrap">
+        <div class="s-head">
+          <span class="s-head__num">03</span>
+          <h2>Questions fréquentes</h2>
+          <p>Les réponses que nous donnons le plus souvent, avant même le premier rendez-vous.</p>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>Faut-il obligatoirement un expert-comptable au Maroc ?</summary>
+            <p>
+              La tenue de la comptabilité est obligatoire pour toute entreprise, mais elle n'impose
+              pas le recours à un expert-comptable. En revanche, la certification des comptes
+              annuels par un commissaire aux comptes est requise pour certaines formes de sociétés
+              dépassant les seuils légaux.
+            </p>
+          </details>
+          <details>
+            <summary>Pouvez-vous reprendre un dossier tenu par un autre cabinet ?</summary>
+            <p>
+              Oui. Nous demandons les comptes de l'exercice en cours, la balance générale et les
+              dernières déclarations déposées. Une reprise de dossier fait l'objet d'une lettre de
+              mission spécifique, chiffrée avant démarrage.
+            </p>
+          </details>
+          <details>
+            <summary>Travaillez-vous avec des clients hors Casablanca ?</summary>
+            <p>
+              Oui. Les pièces se déposent en ligne et les réunions se tiennent en visioconférence.
+              Nous avons des clients à Rabat, Tanger, Marrakech et Agadir, ainsi que des filiales
+              de groupes européens qui n'ont pas de présence sur place.
+            </p>
+          </details>
+          <details>
+            <summary>Que se passe-t-il en cas de contrôle fiscal ?</summary>
+            <p>
+              L'assistance au contrôle fait partie de nos missions d'expertise comptable, dans la
+              limite du périmètre prévu au contrat. Si le volume de travail dépasse ce périmètre,
+              nous vous en informons avant d'engager des honoraires complémentaires.
+            </p>
+          </details>
+          <details>
+            <summary>Vos honoraires sont-ils forfaitaires ?</summary>
+            <p>
+              Les missions récurrentes (comptabilité, paie, déclarations) sont facturées au forfait
+              mensuel. Les missions ponctuelles (audit, business plan, évaluation) font l'objet d'un
+              devis ferme avant démarrage.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="wrap">
+        <div class="cta-band">
+          <div>
+            <h2>La fourchette vous convient ? Passons au chiffre exact.</h2>
+            <p>Envoyez-nous vos deux derniers bilans, nous revenons avec une proposition écrite sous 48 heures.</p>
+          </div>
+          <a class="btn btn--accent" href="contact.html">
+            Demander une proposition
+            <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13" /><path d="m12 5 7 7-7 7" /></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div>
+        <a class="brand" href="index.html">
+          <svg class="brand__mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M20 4.5 33 9.2v10.4c0 7.4-5.2 12.9-13 15.9-7.8-3-13-8.5-13-15.9V9.2L20 4.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+            <path d="m13.6 19.6 4.2 4.3 8.6-9.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="brand__text">Atlas Audit &amp; Conseil<small>Casablanca</small></span>
+        </a>
+        <p class="footer__desc">
+          Cabinet d'audit, d'expertise comptable et de conseil. Nous accompagnons les dirigeants
+          avec exigence, transparence et des outils de suivi modernes.
+        </p>
+        <p style="margin-block-start: var(--s3);">
+          <a class="social" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="Atlas Audit et Conseil sur LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6.5 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.02-3.06-1.9-3.06-1.9 0-2.19 1.45-2.19 2.96V21h-4V9Z" /></svg>
+          </a>
+        </p>
+      </div>
+
+      <div>
+        <h2 class="footer__title">Expertises</h2>
+        <ul class="footer__list">
+          <li><a href="expertises.html#audit">Audit &amp; commissariat</a></li>
+          <li><a href="expertises.html#comptabilite">Expertise comptable</a></li>
+          <li><a href="expertises.html#fiscal">Fiscal &amp; juridique</a></li>
+          <li><a href="expertises.html#social">Social &amp; paie</a></li>
+          <li><a href="expertises.html#finance">Conseil financier</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__title">Le cabinet</h2>
+        <ul class="footer__list">
+          <li><a href="cabinet.html">À propos</a></li>
+          <li><a href="cabinet.html#equipe">Équipe</a></li>
+          <li><a href="ressources.html">Ressources</a></li>
+          <li><a href="ressources.html#simulateur">Estimer un budget</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__title">Coordonnées</h2>
+        <div class="footer__contact">
+          <p>45, boulevard Zerktouni, 4ᵉ étage<br />20100 Casablanca, Maroc</p>
+          <p><a href="tel:+212522000000">+212 (0)5 22 00 00 00</a></p>
+          <p><a href="mailto:contact@atlas-audit.ma">contact@atlas-audit.ma</a></p>
+          <p>Lundi au vendredi, 8h30 – 18h30</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap footer__bottom">
+      <p>© <span data-year>2026</span> Atlas Audit &amp; Conseil. Tous droits réservés.</p>
+      <ul class="footer__legal">
+        <li><a href="mentions-legales.html">Mentions légales</a></li>
+        <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+        <li><a href="ar/ressources.html" hreflang="ar" lang="ar">العربية</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
