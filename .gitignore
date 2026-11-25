@@ -2,7 +2,8 @@
 /*.png
 /*.jpg
 
-# Outils locaux
+# Outils locaux et secrets
 .freebuff/
 .vercel/
 node_modules/
+.env*
