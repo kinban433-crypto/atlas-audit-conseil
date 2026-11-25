@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Pages légales (noindex déjà posé dans leur <head>)
+Disallow: /mentions-legales.html
+Disallow: /confidentialite.html
+Disallow: /ar/mentions-legales.html
+Disallow: /ar/confidentialite.html
+
+Sitemap: https://atlas-audit-conseil.vercel.app/sitemap.xml
