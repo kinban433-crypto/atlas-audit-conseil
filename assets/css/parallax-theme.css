@@ -1,0 +1,369 @@
+/* ============================================================
+   Atlas Audit & Conseil — couche « Parallax »
+   Thème hybride : comportement et typographie du modèle
+   TemplateMo 612 (parallaxe plein écran, Oswald, révélation au
+   défilement) avec la palette Atlas (vert émeraude, encre) et
+   des voiles plus légers pour garder les photos lisibles.
+   Chargé APRÈS styles.css : il surcharge les surfaces claires.
+   ============================================================ */
+
+:root {
+  --p-bg: #0A1520;
+  --p-bg-2: #0E1C29;
+  --p-bg-3: #12283A;
+  --p-panel: rgba(255, 255, 255, 0.045);
+  --p-panel-2: rgba(255, 255, 255, 0.08);
+  --p-line: rgba(255, 255, 255, 0.13);
+  --p-line-strong: rgba(255, 255, 255, 0.26);
+  --p-text: #E9EFF5;
+  --p-muted: #A7B6C5;
+  --p-soft: #7E8D9B;
+  --p-accent: #12A57C;
+  --p-accent-2: #0E8A66;
+  --p-brass: #D9B166;
+  --font-head: "Oswald", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --font-body-p: "Source Sans 3", "IBM Plex Sans Arabic", system-ui, sans-serif;
+}
+
+html { background: var(--p-bg); scroll-behavior: smooth; }
+
+body {
+  background: var(--p-bg);
+  color: var(--p-text);
+  font-family: var(--font-body-p);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  padding-block-start: var(--header-h);
+}
+
+/* Titres : Oswald, capitales espacées (annulé en arabe) */
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-head); font-weight: 400; color: #fff; }
+[dir="rtl"] body,
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4 {
+  font-family: "IBM Plex Sans Arabic", system-ui, sans-serif;
+  letter-spacing: 0;
+}
+
+a { color: inherit; }
+::selection { background: var(--p-accent); color: #04120C; }
+
+.skip-link { background: var(--p-accent); color: #04120C; }
+
+/* ------------------------------------------------------------
+   En-tête fixe translucide
+------------------------------------------------------------ */
+.site-header {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  z-index: 1000;
+  background: rgba(8, 18, 27, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-block-end: 1px solid var(--p-line);
+  transition: background 0.3s ease;
+}
+.site-header.is-stuck { background: rgba(7, 15, 23, 0.92); }
+
+.brand__text { color: #fff; font-family: var(--font-head); letter-spacing: 0.04em; }
+.brand__mark { color: var(--p-accent); }
+.brand__text small { color: var(--p-soft); }
+
+.nav__link {
+  color: var(--p-muted);
+  font-family: var(--font-head);
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.nav__link:hover,
+.nav__link:focus-visible { color: #fff; }
+.nav__link[aria-current="page"] { color: #fff; }
+.nav__link[aria-current="page"]::after {
+  content: "";
+  display: block;
+  height: 2px;
+  margin-block-start: 4px;
+  background: var(--p-accent);
+}
+[dir="rtl"] .nav__link { letter-spacing: 0; text-transform: none; font-size: 0.95rem; }
+
+.lang { color: var(--p-soft); }
+.lang a { color: #fff; }
+.nav-toggle { color: #fff; }
+.nav__cta { color: #04120C; }
+
+/* Panneau mobile */
+@media (max-width: 959px) {
+  .nav {
+    background: rgba(7, 15, 23, 0.97);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-block-start: 1px solid var(--p-line);
+  }
+}
+
+/* ------------------------------------------------------------
+   Boutons
+------------------------------------------------------------ */
+.btn {
+  font-family: var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+}
+[dir="rtl"] .btn { letter-spacing: 0; text-transform: none; font-family: "IBM Plex Sans Arabic", sans-serif; }
+
+.btn--accent {
+  background: var(--p-accent);
+  border-color: var(--p-accent);
+  color: #04120C;
+}
+.btn--accent:hover { background: #19BE8F; border-color: #19BE8F; }
+
+.btn--line {
+  background: transparent;
+  border-color: var(--p-line-strong);
+  color: #fff;
+}
+.btn--line:hover { background: rgba(255, 255, 255, 0.1); border-color: #fff; }
+.btn--line-light { color: #fff; border-color: var(--p-line-strong); }
+
+/* ------------------------------------------------------------
+   Hero d'accueil : plein écran, photo + voile sombre léger
+------------------------------------------------------------ */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: calc(92svh - var(--header-h));
+  padding-block: clamp(64px, 12vh, 140px);
+  border-block-end: 1px solid var(--p-line);
+  background-image:
+    linear-gradient(180deg, rgba(7, 16, 25, 0.72) 0%, rgba(10, 21, 32, 0.66) 45%, rgba(10, 21, 32, 0.9) 100%),
+    radial-gradient(120% 90% at 80% 20%, rgba(18, 165, 124, 0.18) 0%, rgba(10, 21, 32, 0) 60%),
+    var(--hero-photo);
+  background-size: auto, auto, cover;
+  background-position: center, center, center 40%;
+  background-repeat: no-repeat;
+}
+@media (min-width: 960px) {
+  .hero { background-attachment: fixed, fixed, fixed; }
+}
+
+.hero h1 {
+  color: #fff;
+  font-family: var(--font-head);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.12;
+  max-width: 20ch;
+}
+[dir="rtl"] .hero h1 { letter-spacing: 0; line-height: 1.45; max-width: 22ch; }
+.hero__meta { color: rgba(255, 255, 255, 0.78); }
+.hero__meta span + span::before { color: rgba(255, 255, 255, 0.35); }
+.hero__lead { color: rgba(255, 255, 255, 0.84); }
+.hero__actions .btn--line { background: rgba(7, 16, 25, 0.35); }
+
+.assurances {
+  color: #fff;
+  border-block-start: 1px solid var(--p-line);
+  padding-block-start: 18px;
+}
+.assurances strong { color: var(--p-brass); }
+.assurances a { color: #fff; text-decoration-color: var(--p-accent); }
+
+/* ------------------------------------------------------------
+   Sections
+------------------------------------------------------------ */
+.section { background: var(--p-bg); color: var(--p-text); }
+.section--paper { background: var(--p-bg-2); border-block-color: var(--p-line); }
+.section--ink {
+  background: radial-gradient(120% 120% at 50% 0%, #0F2B3D 0%, #071019 72%);
+  color: var(--p-text);
+  border-block: 1px solid var(--p-line);
+}
+.section p { color: var(--p-muted); }
+
+.s-head h2 { color: #fff; font-family: var(--font-head); font-weight: 400; }
+.s-head__num { color: var(--p-accent); font-family: var(--font-head); }
+.s-head p { color: var(--p-muted); }
+
+/* En-tête de page intérieure */
+.page-head {
+  background: linear-gradient(180deg, rgba(18, 40, 58, 0.85) 0%, var(--p-bg) 100%);
+  border-block-end: 1px solid var(--p-line);
+}
+.page-head h1 { color: #fff; font-family: var(--font-head); font-weight: 400; letter-spacing: 0.01em; }
+[dir="rtl"] .page-head h1 { letter-spacing: 0; font-family: "IBM Plex Sans Arabic", sans-serif; }
+.page-head p { color: var(--p-muted); }
+.breadcrumb { color: var(--p-soft); }
+.breadcrumb a:hover { color: #fff; }
+.breadcrumb li + li::before { color: var(--p-line-strong); }
+
+/* ------------------------------------------------------------
+   Bandes photo : voile + légende lisible, parallaxe (JS)
+------------------------------------------------------------ */
+.band { position: relative; overflow: hidden; border-radius: 2px; }
+.band img { filter: saturate(1.05) contrast(1.03); will-change: transform; }
+.band::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 16, 25, 0.1) 0%, rgba(7, 16, 25, 0.55) 100%);
+  pointer-events: none;
+}
+.band figcaption {
+  position: relative;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.82);
+  border-block-start-color: rgba(255, 255, 255, 0.22);
+}
+
+/* Bloc éditorial image + texte */
+.editorial p { color: var(--p-muted); }
+.editorial h2 { color: #fff; }
+.eyeline { color: var(--p-accent); font-family: var(--font-head); }
+[dir="rtl"] .eyeline { font-family: "IBM Plex Sans Arabic", sans-serif; }
+.editorial__media img { border-radius: 2px; }
+
+/* ------------------------------------------------------------
+   Liste de services (index)
+------------------------------------------------------------ */
+.svc { border-block-start-color: var(--p-line); }
+.svc__row {
+  border-block-end-color: var(--p-line);
+}
+.svc__row:hover { background: var(--p-panel); }
+.svc__num { color: var(--p-soft); }
+.svc__title { color: #fff; font-family: var(--font-head); font-weight: 400; letter-spacing: 0.02em; }
+[dir="rtl"] .svc__title { font-family: "IBM Plex Sans Arabic", sans-serif; letter-spacing: 0; }
+.svc__text { color: var(--p-muted); }
+.svc__tags { color: var(--p-soft); }
+.svc__tags li::before { background: var(--p-accent); }
+.svc__go { color: #fff; border-color: var(--p-line-strong); }
+.svc__row:hover .svc__go { background: var(--p-accent); border-color: var(--p-accent); color: #04120C; }
+
+/* ------------------------------------------------------------
+   Chiffres clés / stats / valeurs
+------------------------------------------------------------ */
+.stats__value { color: #fff; font-family: var(--font-head); font-weight: 300; }
+.stats__label { color: var(--p-muted); }
+.values__n { color: var(--p-accent); font-family: var(--font-head); }
+
+/* ------------------------------------------------------------
+   Cartes & panneaux (verre fumé)
+------------------------------------------------------------ */
+.sim-panel,
+.contact-card,
+.guide,
+.tool-grid,
+.quote-main,
+.quotes-small,
+.cta-band,
+.note,
+.fees,
+.faq,
+.checks,
+.about-col,
+.map {
+  background: var(--p-panel);
+  border-color: var(--p-line);
+  color: var(--p-text);
+}
+.sim-panel__form,
+.sim-out {
+  background: var(--p-panel-2);
+  border-color: var(--p-line);
+}
+.sim-out__amount { color: #fff; font-family: var(--font-head); }
+.sim-out__label, .sim-out__unit, .sim-out__note, .sim-out__disclaimer { color: var(--p-muted); }
+.guide__kicker { color: var(--p-brass); }
+.guide__foot { color: var(--p-soft); }
+.quote-main, .quotes-small { color: var(--p-text); }
+
+.cta-band {
+  background: linear-gradient(120deg, rgba(14, 138, 102, 0.22) 0%, rgba(18, 40, 58, 0.35) 100%);
+  border-block: 1px solid var(--p-line);
+}
+
+/* ------------------------------------------------------------
+   Formulaires
+------------------------------------------------------------ */
+.field label,
+.field__label { color: #fff; }
+.field input,
+.field textarea,
+.field select,
+.input,
+.sim-panel__form input,
+.sim-panel__form select,
+.contact-form input,
+.contact-form textarea {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--p-line);
+  color: #fff;
+}
+.field input::placeholder,
+.field textarea::placeholder,
+.input::placeholder { color: var(--p-soft); }
+.field input:focus,
+.field textarea:focus,
+.field select:focus,
+.input:focus {
+  border-color: var(--p-accent);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(18, 165, 124, 0.18);
+}
+.field__error { color: #FF9A8B; }
+.form-note, .form-error { color: var(--p-muted); }
+.form-success { background: rgba(18, 165, 124, 0.14); border-color: var(--p-accent); color: #CFF3E7; }
+.check-line, .check-pill { color: var(--p-muted); border-color: var(--p-line); }
+.range { accent-color: var(--p-accent); }
+
+/* ------------------------------------------------------------
+   Prose, tableaux, divers
+------------------------------------------------------------ */
+.prose h2, .prose h3 { color: #fff; }
+.prose p, .prose li { color: var(--p-muted); }
+.prose a { color: var(--p-accent); }
+.note { color: var(--p-muted); }
+.link-under { color: #fff; }
+.label-value { color: var(--p-muted); }
+
+.table-wrap table { color: var(--p-text); }
+.table-wrap th { background: var(--p-panel-2); color: #fff; }
+.table-wrap th, .table-wrap td { border-color: var(--p-line); }
+
+.steps { border-color: var(--p-line); }
+.faq { color: var(--p-muted); }
+.faq summary, .faq h3 { color: #fff; }
+.sectors { color: var(--p-muted); }
+.social a { color: var(--p-muted); }
+.social a:hover { color: #fff; }
+
+/* ------------------------------------------------------------
+   Footer
+------------------------------------------------------------ */
+.footer {
+  background: #071019;
+  border-block-start: 1px solid var(--p-line);
+  color: var(--p-muted);
+}
+.footer a { color: var(--p-muted); }
+.footer a:hover { color: #fff; }
+.footer__title { color: #fff; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.12em; }
+[dir="rtl"] .footer__title { font-family: "IBM Plex Sans Arabic", sans-serif; text-transform: none; letter-spacing: 0; }
+.footer__desc, .footer__contact, .footer__legal { color: var(--p-muted); }
+.footer__bottom { border-block-start: 1px solid var(--p-line); color: var(--p-soft); }
+
+/* ------------------------------------------------------------
+   Révélation au défilement (le JS ajoute .reveal)
+------------------------------------------------------------ */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+  .hero { background-attachment: scroll, scroll, scroll; }
+}
