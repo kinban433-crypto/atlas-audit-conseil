@@ -222,6 +222,8 @@ a { color: inherit; }
 }
 
 /* Bloc éditorial image + texte */
+/* <picture> ne doit pas créer de boîte : l'img garde la mise en page */
+.editorial picture { display: contents; }
 .editorial p { color: var(--p-muted); }
 .editorial h2 { color: #fff; }
 .eyeline { color: var(--p-accent); font-family: var(--font-head); }

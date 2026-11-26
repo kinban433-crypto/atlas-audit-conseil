@@ -275,8 +275,13 @@
 
         <div class="editorial">
           <div class="editorial__media">
-            <img src="assets/img/bureau.jpg" width="1184" height="880" loading="lazy"
-                 alt="Bureau du cabinet : documents comptables, stylo et ordinateur portable près d'une baie vitrée." />
+            <picture>
+              <source type="image/webp"
+                      srcset="assets/img/bureau-480.webp 480w, assets/img/bureau-800.webp 800w, assets/img/bureau-1184.webp 1184w"
+                      sizes="(min-width: 860px) 590px, calc(100vw - 60px)" />
+              <img src="assets/img/bureau.jpg" width="1184" height="880" loading="lazy"
+                   alt="Bureau du cabinet : documents comptables, stylo et ordinateur portable près d'une baie vitrée." />
+            </picture>
           </div>
           <div>
             <span class="eyeline">Notre engagement</span>
